@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Filter from './components/Filters/Filter';
 import logo from './logo.svg';
 import './App.css';
 
@@ -39,6 +40,7 @@ class App extends Component {
         <ul id="listy">
           <li>First</li>
         </ul>
+        <Filter />
       </div>
     );
   }
