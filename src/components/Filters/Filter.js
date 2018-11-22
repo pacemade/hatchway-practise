@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 
 const filter = (props) => {
   return (
-    <h1> something </h1>
+    <div>
+      <h2>Filter by:</h2>
+      <input type="text" />
+      <button>Go!</button>
+    </div>
   )
 }
 

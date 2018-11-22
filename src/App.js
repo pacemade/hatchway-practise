@@ -36,11 +36,10 @@ class App extends Component {
       <div>
         <h1> Oh damn this was harder than I thought for reals </h1>
         <button onClick={(e) => this.callTheApi(e)}>Throw me information</button>
-        <button onClick={(e) => this.createNode(e)}>Make a list thing</button>
+        <Filter />
         <ul id="listy">
           <li>First</li>
         </ul>
-        <Filter />
       </div>
     );
   }
