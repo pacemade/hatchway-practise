@@ -22,7 +22,7 @@ class App extends Component {
         console.log(data);
         for (var i = 0; i < data.results.length; i++) {
           const node = document.createElement("li");
-          const textNode = document.createTextNode(data.results[i].name);
+          let textNode = document.createTextNode(data.results[i].name);
           node.appendChild(textNode);
           document.getElementById("listy").appendChild(node);
         }
