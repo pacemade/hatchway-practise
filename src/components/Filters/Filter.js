@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 
-const filter = (props) => {
-  return (
-    <div>
-      <h2>Filter by:</h2>
-      <input type="text" />
-      <button>Go!</button>
-    </div>
-  )
-}
+class Filter extends Component {
 
-export default filter;
+  state = {
+    pokemon: ''
+  }
+
+  render() {
+    return(
+      <h1>does this still work</h1>
+    )
+  }
+}
+export default Filter;
