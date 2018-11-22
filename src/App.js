@@ -5,13 +5,12 @@ import './App.css';
 class App extends Component {
 
 
-  createNode = (e) => {
-    const node = document.createElement("li");
-    const textNode = document.createTextNode("Fifth");
-    node.appendChild(textNode);
-    document.getElementById("listy").appendChild(node);
-  }
-
+  // createNode = (e) => {
+  //   const node = document.createElement("li");
+  //   const textNode = document.createTextNode("Fifth");
+  //   node.appendChild(textNode);
+  //   document.getElementById("listy").appendChild(node);
+  // }
 
   callTheApi = (e) => {
     console.log("okay so far so good");
@@ -21,11 +20,12 @@ class App extends Component {
       })
       .then(function(data) {
         console.log(data);
-        const node = document.createElement("li");
-        const textNode = document.createTextNode(data.results);
-
-        node.appendChild(textNode);
-        document.getElementById("listy").appendChild(node);
+        for (var i = 0; i < data.results.length; i++) {
+          const node = document.createElement("li");
+          const textNode = document.createTextNode(data.results[i].name);
+          node.appendChild(textNode);
+          document.getElementById("listy").appendChild(node);
+        }
       })
   }
 
@@ -38,9 +38,6 @@ class App extends Component {
         <button onClick={(e) => this.createNode(e)}>Make a list thing</button>
         <ul id="listy">
           <li>First</li>
-          <li>Second</li>
-          <li>Third</li>
-          <li>Fourth</li>
         </ul>
       </div>
     );
