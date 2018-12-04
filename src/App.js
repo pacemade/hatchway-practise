@@ -18,13 +18,13 @@ class App extends Component {
   }
 
   makeListHandler = (data) => {
-    console.log("is it working");
-    // for (var i = 0; i < data.results.length; i++) {
-    //   const node = document.createElement("li");
-    //   let textNode = document.createTextNode(data.results[i].name);
-    //   node.appendChild(textNode);
-    //   document.getElementById("listy").appendChild(node);
-    // }
+    // console.log("is it working");
+    for (var i = 0; i < data.results.length; i++) {
+      const node = document.createElement("li");
+      let textNode = document.createTextNode(data.results[i].name);
+      node.appendChild(textNode);
+      document.getElementById("listy").appendChild(node);
+    }
   }
 
   callTheApi = (e) => {
