@@ -18,12 +18,18 @@ class App extends Component {
   }
 
   makeListHandler = (data) => {
-    // console.log("is it working");
     for (var i = 0; i < data.results.length; i++) {
       const node = document.createElement("li");
       let textNode = document.createTextNode(data.results[i].name);
       node.appendChild(textNode);
       document.getElementById("listy").appendChild(node);
+    }
+  }
+
+  updateArrayHandler = (poke) => {
+    for (var i = 0; i < poke.results.length; i++) {
+      let pokemon = poke.results[i].name
+      this.setState({ pokemon: [...this.state.pokemon, pokemon ]})
     }
   }
 
@@ -34,6 +40,7 @@ class App extends Component {
       })
       .then(data => {
         this.makeListHandler(data);
+        this.updateArrayHandler(data);
       })
   }
 
