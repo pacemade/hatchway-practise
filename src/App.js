@@ -51,8 +51,8 @@ class App extends Component {
     });
   }
 
-  displayMatchesHandler = () => {
-    const matchArray = this.findMatchesHandler(this.value, this.state.pokemon)
+  displayMatchesHandler = (e) => {
+    const matchArray = this.findMatchesHandler(e.target.value, this.state.pokemon)
     console.log(matchArray);
   }
 
@@ -60,7 +60,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1> {this.state.pokemon} </h1>
         <button onClick={this.callTheApi}>Throw me information</button>
         <button onClick={this.clearPokemonHandler}>Clear The array</button>
 
@@ -71,7 +70,7 @@ class App extends Component {
             className="search"
             placeholder="pokemon" />
           <ul className="suggestions">
-            <li>Pokemon</li>
+            <li>{this.state.pokemon}</li>
           </ul>
         </form>
 
