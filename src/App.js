@@ -17,14 +17,14 @@ class App extends Component {
     this.setState({ pokemon: list })
   }
 
-  makeListHandler = (data) => {
-    for (var i = 0; i < data.results.length; i++) {
-      const node = document.createElement("li");
-      let textNode = document.createTextNode(data.results[i].name);
-      node.appendChild(textNode);
-      document.getElementById("listy").appendChild(node);
-    }
-  }
+  // makeListHandler = (data) => {
+  //   for (var i = 0; i < data.results.length; i++) {
+  //     const node = document.createElement("li");
+  //     let textNode = document.createTextNode(data.results[i].name);
+  //     node.appendChild(textNode);
+  //     document.getElementById("listy").appendChild(node);
+  //   }
+  // }
 
   updateArrayHandler = (poke) => {
     for (var i = 0; i < poke.results.length; i++) {
@@ -40,7 +40,6 @@ class App extends Component {
       })
       .then(data => {
         console.log(data);
-        this.makeListHandler(data);
         this.updateArrayHandler(data);
       })
   }
@@ -52,13 +51,9 @@ class App extends Component {
     });
   }
 
-  pleaseWork = (thing) => {
-    console.log("first work");
-    this.pleaseWorkAgain();
-  }
-
-  pleaseWorkAgain = () => {
-    console.log("second work");
+  displayMatchesHandler = () => {
+    const matchArray = this.findMatchesHandler(this.value, this.state.pokemon)
+    console.log(matchArray);
   }
 
 
@@ -69,9 +64,13 @@ class App extends Component {
         <button onClick={this.callTheApi}>Throw me information</button>
         <button onClick={this.clearPokemonHandler}>Clear The array</button>
 
-        <form class="search-form">
-          <input type="text" class="search" placeholder="pokemon" />
-          <ul class="suggestions">
+        <form className="search-form">
+          <input
+            onChange={this.displayMatchesHandler}
+            type="text"
+            className="search"
+            placeholder="pokemon" />
+          <ul className="suggestions">
             <li>Pokemon</li>
           </ul>
         </form>
