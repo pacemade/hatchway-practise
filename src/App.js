@@ -6,7 +6,7 @@ import './App.css';
 class App extends Component {
 
   state = {
-    pokemon: [1,2,3]
+    pokemon: []
   }
 
   clearPokemonHandler = () => {
@@ -39,9 +39,17 @@ class App extends Component {
         return response.json();
       })
       .then(data => {
+        console.log(data);
         this.makeListHandler(data);
         this.updateArrayHandler(data);
       })
+  }
+
+  findMatchesHandler = (wordToMatch, pokemons) => {
+    return pokemons.filter(pokemon => {
+      const regex = new RegExp(wordToMatch, 'gi');
+      return pokemon.match(regex)
+    });
   }
 
   pleaseWork = (thing) => {
@@ -59,8 +67,15 @@ class App extends Component {
       <div>
         <h1> {this.state.pokemon} </h1>
         <button onClick={this.callTheApi}>Throw me information</button>
-        <button onClick={this.pleaseWork}>please work</button>
         <button onClick={this.clearPokemonHandler}>Clear The array</button>
+
+        <form class="search-form">
+          <input type="text" class="search" placeholder="pokemon" />
+          <ul class="suggestions">
+            <li>Pokemon</li>
+          </ul>
+        </form>
+
         <Filter />
         <ul id="listy">
           <li>First</li>
