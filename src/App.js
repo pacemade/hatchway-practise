@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Filter from './components/Filters/Filter';
-import logo from './logo.svg';
+import SearchBox from './components/SearchBox/searchBox';
 import './App.css';
 
 class App extends Component {
@@ -72,21 +71,13 @@ class App extends Component {
         <button onClick={this.callTheApi}>Throw me information</button>
         <button onClick={this.clearPokemonHandler}>Clear The array</button>
 
-        <form className="search-form">
-          <input
-            onChange={this.displayMatchesHandler}
-            type="text"
-            className="search"
-            placeholder="pokemon" />
-          <ul className="suggestions">
-            <li>{this.state.pokemon}</li>
-          </ul>
-        </form>
+        <SearchBox
+          changed={this.displayMatchesHandler}/>
 
-        <Filter />
         <ul id="listy">
           <li>First</li>
         </ul>
+
       </div>
     );
   }
