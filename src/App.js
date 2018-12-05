@@ -54,6 +54,15 @@ class App extends Component {
   displayMatchesHandler = (e) => {
     const matchArray = this.findMatchesHandler(e.target.value, this.state.pokemon)
     console.log(matchArray);
+    const html = matchArray.map(pokemon => {
+      return`
+        <li>
+          <span>${pokemon}</span>
+        </li>
+      `;
+    }).join('');
+    const suggestions = document.querySelector('.suggestions')
+    suggestions.innerHTML = html;
   }
 
 
